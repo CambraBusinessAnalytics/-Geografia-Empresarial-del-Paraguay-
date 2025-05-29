@@ -240,15 +240,15 @@ def dropdown(radio):
     if radio == 'Seccion':   
         valores = sorted(df['Seccion'].unique())
         options = [{"label": v, "value": v} for v in valores]
-        value = []
+        value = ['ACTIVIDADES ADMINISTRATIVAS Y SERVICIOS DE APOYO']
     elif radio == 'Division':
         valores = sorted(df['Division'].unique())
         options = [{"label": v, "value": v} for v in valores]
-        value = []
+        value = ['ACTIVIDADES ADMINISTRATIVAS DE OFICINAS Y OTRAS ACTIVIDADES AUXILIARES DE LAS EMPRESAS']
     elif radio == 'Actividad_principal':
         valores = sorted(df['Actividad_principal'].unique())
         options = [{"label": v, "value": v} for v in valores]
-        value = []
+        value = ['01110 Cultivo de arroz']
     
     return options, value
 
