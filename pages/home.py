@@ -42,8 +42,16 @@ layout = html.Div([
                 value='Cantidad',
                 inline=True
             ),
-            dcc.Graph(id='plot-paraguay', style={'height': '800px', 'width': '100%'},  # O un valor fijo como 'width': '800px'
-                      config={'scrollZoom': False})], width=7),
+            dcc.Loading(
+                id="loading-mapa",
+                type="default",  # o 'circle', 'dot', 'cube'
+                children=dcc.Graph(
+                    id='plot-paraguay',
+                    style={'height': '800px', 'width': '100%'},
+                    config={'scrollZoom': False}
+                )
+            )
+        ], width=7),
 
         # Gráficos de barra
         dbc.Col([
