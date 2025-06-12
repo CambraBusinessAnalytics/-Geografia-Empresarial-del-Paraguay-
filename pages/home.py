@@ -4,7 +4,7 @@ from dash import dcc, html, Input, Output, dash_table
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import json
-import os
+
 # Inicialización de la app (si es standalone, si estás usando multipágina no la dupliques)
 dash.register_page(__name__, path="/")
 
@@ -59,7 +59,7 @@ layout = html.Div([
                     },
                     style_cell={'textAlign': 'center'},
                 )
-            ], xs=12, md=6),
+            ], xs=10, md=5),
 
             dbc.Col([
                 dash_table.DataTable(
@@ -80,8 +80,8 @@ layout = html.Div([
                         'lineHeight': '15px',
                     }
                 )
-            ], xs=12, md=6),
-        ], style={'marginTop': '20px'}),
+            ], xs=10, md=5),
+        ],justify="center", style={'marginTop': '20px'}),
     ], fluid=True),
 
     html.Hr(),
