@@ -40,17 +40,13 @@ layout = html.Div([
                     value='Cantidad',
                     inline=True
                 ),
-                dcc.Loading(
-                    id="loading-mapa",
-                    type="default",
-                    children=dcc.Graph(
-                        id='plot-paraguay',
-                        style={'height': '800px', 'width': '100%'},
-                        config={'scrollZoom': False}
-                    )
-                )
-            ], width=12)
-        ]),
+                dcc.Graph(
+                    id='plot-paraguay',
+                    style={'height': '800px', 'width': '100%'},
+                    config={'scrollZoom': False}),
+            ], width=10)
+        ], justify="center"),
+
 
         dbc.Row([
             dbc.Col([
@@ -286,4 +282,3 @@ def update_figures(radio, clickData):
         table2_columns = []
 
     return fig_map, table1_data, table1_columns, table2_data, table2_columns
-
