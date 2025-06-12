@@ -361,7 +361,7 @@ def update_dashboard(radio, selected_options, selected_info):
 
             # Para la tabla se usan los datos filtrados
         
-            data = df_departamentos2.to_dict('records')
+            data = df_departamentos4.to_dict('records')
             columns=[
                 {'name': 'DEPARTAMENTO', 'id': 'DEPARTAMENTO'},
                 {'name': 'CANTIDAD', 'id': 'Cantidad_Empresas'}
