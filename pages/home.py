@@ -51,41 +51,40 @@ layout = html.Div([
     ], fluid=True)
 
 
-        dbc.Row([
-            dbc.Col([
-                dash_table.DataTable(
-                    id='table1a',
-                    style_table={
-                        'maxWidth': '100%',
-                        'overflowX': 'auto',
-                        'margin': 'auto'
-                    },
-                    style_cell={'textAlign': 'center'},
-                )
-            ], xs=10, md=5),
-
-            dbc.Col([
-                dash_table.DataTable(
-                    id='table2a',
-                    style_table={
-                        'maxWidth': '100%',
-                        'overflowX': 'auto',
-                        'margin': 'auto'
-                    },
-                    style_cell={
-                        'textAlign': 'center',
-                        'fontSize': '14px',
-                        'whiteSpace': 'normal',
-                        'height': 'auto',
-                    },
-                    style_data={
-                        'whiteSpace': 'normal',
-                        'lineHeight': '15px',
-                    }
-                )
-            ], xs=10, md=5),
-        ],justify="center", style={'marginTop': '20px'}),
-    ], fluid=True),
+    dbc.Row([
+        dbc.Col([
+            dash_table.DataTable(
+                id='table1a',
+                style_table={
+                    'maxWidth': '100%',
+                    'overflowX': 'auto',
+                    'margin': 'auto'
+                },
+                style_cell={'textAlign': 'center'},
+            )
+        ], xs=10, md=5, className='mb-4 mb-md-0'),  # margen inferior solo en pantallas pequeñas
+    
+        dbc.Col([
+            dash_table.DataTable(
+                id='table2a',
+                style_table={
+                    'maxWidth': '100%',
+                    'overflowX': 'auto',
+                    'margin': 'auto'
+                },
+                style_cell={
+                    'textAlign': 'center',
+                    'fontSize': '14px',
+                    'whiteSpace': 'normal',
+                    'height': 'auto',
+                },
+                style_data={
+                    'whiteSpace': 'normal',
+                    'lineHeight': '15px',
+                }
+            )
+        ], xs=10, md=5),
+    ], justify="center", style={'marginTop': '20px'})
 
     html.Hr(),
 
