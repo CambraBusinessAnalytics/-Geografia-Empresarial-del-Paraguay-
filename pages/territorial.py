@@ -356,17 +356,19 @@ def update_dashboard(radio, selected_options, selected_info):
                 legend=dict(
                     orientation="h",
                     yanchor="bottom",
-                    y=-1,
+                    y=-0.35,  # Baja más la leyenda para que tenga espacio
                     xanchor="center",
-                    x=0.5
+                    x=0.5,
+                    traceorder='normal',
+                    itemwidth=100,  # fuerza a que cada ítem tenga un ancho máximo (puede ajustarse)
+                    font=dict(size=10)
                 ),
                 height=1000,
-                xaxis_tickangle=-45,           # Rotar etiquetas 45 grados para evitar superposición
-                xaxis_tickfont=dict(size=10),  # Reducir tamaño de fuente de etiquetas X
-                margin=dict(t=50, b=100),      # Más espacio arriba y abajo para que no se corten
-                xaxis=dict(automargin=True)    # Ajusta márgenes automáticamente para etiquetas largas
+                margin=dict(t=50, b=250),  # más espacio para leyenda
+                xaxis_tickangle=-45,
+                xaxis_tickfont=dict(size=10),
+                xaxis=dict(automargin=True)
             )
-
            
 
             # Para la tabla se usan los datos filtrados
@@ -457,15 +459,18 @@ def update_dashboard(radio, selected_options, selected_info):
                 legend=dict(
                     orientation="h",
                     yanchor="bottom",
-                    y=-1,
+                    y=-0.35,  # Baja más la leyenda para que tenga espacio
                     xanchor="center",
-                    x=0.5
+                    x=0.5,
+                    traceorder='normal',
+                    itemwidth=100,  # fuerza a que cada ítem tenga un ancho máximo (puede ajustarse)
+                    font=dict(size=10)
                 ),
                 height=1000,
-                xaxis_tickangle=-45,           # Rotar etiquetas 45 grados para evitar superposición
-                xaxis_tickfont=dict(size=10),  # Reducir tamaño de fuente de etiquetas X
-                margin=dict(t=50, b=100),      # Más espacio arriba y abajo para que no se corten
-                xaxis=dict(automargin=True)    # Ajusta márgenes automáticamente para etiquetas largas
+                margin=dict(t=50, b=250),  # más espacio para leyenda
+                xaxis_tickangle=-45,
+                xaxis_tickfont=dict(size=10),
+                xaxis=dict(automargin=True)
             )
 
             # Para la tabla se usan los datos filtrados
@@ -992,17 +997,19 @@ def update_dashboard(radio, selected_options, selected_info):
                 legend=dict(
                     orientation="h",
                     yanchor="bottom",
-                    y=-1,
+                    y=-0.35,  # Baja más la leyenda para que tenga espacio
                     xanchor="center",
-                    x=0.5
+                    x=0.5,
+                    traceorder='normal',
+                    itemwidth=100,  # fuerza a que cada ítem tenga un ancho máximo (puede ajustarse)
+                    font=dict(size=10)
                 ),
                 height=1000,
-                xaxis_tickangle=-45,           # Rotar etiquetas 45 grados para evitar superposición
-                xaxis_tickfont=dict(size=10),  # Reducir tamaño de fuente de etiquetas X
-                margin=dict(t=50, b=100),      # Más espacio arriba y abajo para que no se corten
-                xaxis=dict(automargin=True)    # Ajusta márgenes automáticamente para etiquetas largas
+                margin=dict(t=50, b=250),  # más espacio para leyenda
+                xaxis_tickangle=-45,
+                xaxis_tickfont=dict(size=10),
+                xaxis=dict(automargin=True)
             )
-
             # Para la tabla se usan los datos filtrados
             data = df_distritos2.to_dict('records')
             columns=[
@@ -1081,16 +1088,20 @@ def update_dashboard(radio, selected_options, selected_info):
                 legend=dict(
                     orientation="h",
                     yanchor="bottom",
-                    y=-1,
+                    y=-0.35,  # Baja más la leyenda para que tenga espacio
                     xanchor="center",
-                    x=0.5
+                    x=0.5,
+                    traceorder='normal',
+                    itemwidth=100,  # fuerza a que cada ítem tenga un ancho máximo (puede ajustarse)
+                    font=dict(size=10)
                 ),
                 height=1000,
-                xaxis_tickangle=-45,           # Rotar etiquetas 45 grados para evitar superposición
-                xaxis_tickfont=dict(size=10),  # Reducir tamaño de fuente de etiquetas X
-                margin=dict(t=50, b=100),      # Más espacio arriba y abajo para que no se corten
-                xaxis=dict(automargin=True)    # Ajusta márgenes automáticamente para etiquetas largas
+                margin=dict(t=50, b=250),  # más espacio para leyenda
+                xaxis_tickangle=-45,
+                xaxis_tickfont=dict(size=10),
+                xaxis=dict(automargin=True)
             )
+            
             data = df_distritos2.to_dict('records')
             columns=[
                 {'name': 'DISTRITOS', 'id': 'DISTRITO'},
