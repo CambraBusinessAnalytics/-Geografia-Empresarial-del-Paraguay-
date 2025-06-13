@@ -112,7 +112,14 @@ layout = dbc.Container([
         dbc.Col(
             dcc.Dropdown(
                 id='infoc',
-                options=[...],  # tus opciones
+                options=[
+                    {'label': 'Distribución de actividades por territorio s/ cantidad de empresas', 'value': 'a'},
+                    {'label': 'Distribución de ganancias según actividad económica y territorio', 'value': 'b'},
+                    {'label': 'Distribución de ganancias/empresas según actividad económica', 'value': 'c'},                    
+                    {'label': 'Cantidad de empresas según por niveles actividad económica', 'value': 'd'},
+                    {'label': 'Ganancias por niveles de actividad económica', 'value': 'e'},
+                    {'label': 'Cantidad de distritos por actividad económica', 'value': 'f'},
+                ],
                 value='a',
                 clearable=False,
                 multi=False,
