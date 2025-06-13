@@ -97,10 +97,10 @@ layout = dbc.Container([
                 inline=True, 
                 id='radiob'
             ), 
-            width=2,
-            className='mx-auto'
+            xs=12, md=2,
+            className='mb-3 mb-md-0 mx-auto'
         ),
-
+    
         dbc.Col(
             dcc.Dropdown(
                 id='dropdown-optionsb',
@@ -111,10 +111,10 @@ layout = dbc.Container([
                 placeholder='Selecciona una o varias opciones',
                 style={'width': '100%', 'font-family': 'Cambria'}
             ),
-            width=4,
-            className='mx-auto'
+            xs=12, md=4,
+            className='mb-3 mb-md-0 mx-auto'
         ),
-
+    
         dbc.Col(
             dcc.Dropdown(
                 id='infob',
@@ -125,7 +125,6 @@ layout = dbc.Container([
                     {'label': 'Cantidad de empresas/población en cada territorio', 'value': 'd'},
                     {'label': 'Participación de ganancias/población en cada territorio', 'value': 'e'},
                     {'label': 'Cantidad de actividades por cada territorio', 'value': 'f'},
-
                 ],
                 value='a',
                 clearable=False,
@@ -133,10 +132,11 @@ layout = dbc.Container([
                 placeholder='Selecciona una opción',
                 style={'width': '100%', 'font-family': 'Cambria', 'maxHeight': '800px'},
             ),
-            width=5,
+            xs=12, md=5,
             className='mx-auto'
         )
-    ]),
+    ], justify='center', className='mb-4')
+
 
     html.Hr(),
 
@@ -163,8 +163,13 @@ layout = dbc.Container([
 
     # Segundo gráfico (barras u otro)
     dbc.Row([
-        dbc.Col(dcc.Graph(id='plot2b', figure=fig2), width=8, className='mx-auto'),
-    ]),
+        dbc.Col(
+            dcc.Graph(id='plot2b', figure=fig2, style={'width': '100%'}),
+            xs=12, md=8,
+            className='mx-auto mb-4'
+        ),
+    ])
+
 
     html.Hr(),
     
@@ -351,12 +356,17 @@ def update_dashboard(radio, selected_options, selected_info):
                 legend=dict(
                     orientation="h",
                     yanchor="bottom",
-                    y=-1,  # Ajustar si es necesario
+                    y=-1,
                     xanchor="center",
                     x=0.5
                 ),
-                height=1000  # Ajustar la altura si es necesario
+                height=1000,
+                xaxis_tickangle=-45,           # Rotar etiquetas 45 grados para evitar superposición
+                xaxis_tickfont=dict(size=10),  # Reducir tamaño de fuente de etiquetas X
+                margin=dict(t=50, b=100),      # Más espacio arriba y abajo para que no se corten
+                xaxis=dict(automargin=True)    # Ajusta márgenes automáticamente para etiquetas largas
             )
+
            
 
             # Para la tabla se usan los datos filtrados
@@ -447,11 +457,15 @@ def update_dashboard(radio, selected_options, selected_info):
                 legend=dict(
                     orientation="h",
                     yanchor="bottom",
-                    y=-1,  # Ajustar si es necesario
+                    y=-1,
                     xanchor="center",
                     x=0.5
                 ),
-                height=1000  # Ajustar la altura si es necesario
+                height=1000,
+                xaxis_tickangle=-45,           # Rotar etiquetas 45 grados para evitar superposición
+                xaxis_tickfont=dict(size=10),  # Reducir tamaño de fuente de etiquetas X
+                margin=dict(t=50, b=100),      # Más espacio arriba y abajo para que no se corten
+                xaxis=dict(automargin=True)    # Ajusta márgenes automáticamente para etiquetas largas
             )
 
             # Para la tabla se usan los datos filtrados
@@ -978,11 +992,15 @@ def update_dashboard(radio, selected_options, selected_info):
                 legend=dict(
                     orientation="h",
                     yanchor="bottom",
-                    y=-1,  # Ajustar si es necesario
+                    y=-1,
                     xanchor="center",
                     x=0.5
                 ),
-                height=1000  # Ajustar la altura si es necesario
+                height=1000,
+                xaxis_tickangle=-45,           # Rotar etiquetas 45 grados para evitar superposición
+                xaxis_tickfont=dict(size=10),  # Reducir tamaño de fuente de etiquetas X
+                margin=dict(t=50, b=100),      # Más espacio arriba y abajo para que no se corten
+                xaxis=dict(automargin=True)    # Ajusta márgenes automáticamente para etiquetas largas
             )
 
             # Para la tabla se usan los datos filtrados
@@ -1063,13 +1081,16 @@ def update_dashboard(radio, selected_options, selected_info):
                 legend=dict(
                     orientation="h",
                     yanchor="bottom",
-                    y=-1,  # Ajustar si es necesario
+                    y=-1,
                     xanchor="center",
                     x=0.5
                 ),
-                height=1000  # Ajustar la altura si es necesario
+                height=1000,
+                xaxis_tickangle=-45,           # Rotar etiquetas 45 grados para evitar superposición
+                xaxis_tickfont=dict(size=10),  # Reducir tamaño de fuente de etiquetas X
+                margin=dict(t=50, b=100),      # Más espacio arriba y abajo para que no se corten
+                xaxis=dict(automargin=True)    # Ajusta márgenes automáticamente para etiquetas largas
             )
-
             data = df_distritos2.to_dict('records')
             columns=[
                 {'name': 'DISTRITOS', 'id': 'DISTRITO'},
