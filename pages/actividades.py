@@ -59,26 +59,27 @@ fig2= go.Figure()
 # Layout de la página principal
 layout = dbc.Container([
 
-    # Título centrado
+    # Título
     dbc.Row([
         dbc.Col(
             html.H2("Análisis de características económicas del Paraguay", 
                     style={'textAlign': 'center', 'font-family': 'Avenir'}),
-            width=12
+            xs=12
         )
     ]),
 
     # Descripción
     dbc.Row([
         dbc.Col(
-            html.P("Selecciona una opción en el menú para visualizar los datos (más opciones conlleva más tiempo de carga).", 
+            html.P("Selecciona una opción en el menú para visualizar los datos (más opciones conllevan más tiempo de carga).", 
                    style={'textAlign': 'center', 'font-family': 'Cambria'}),
-            width=8,
-            className='mx-auto'
+            xs=12, md=8, className='mx-auto mb-4'
         )
     ]),
 
     html.Hr(),
+
+    # Radio
     dbc.Row([
         dbc.Col(
             dcc.RadioItems(
@@ -87,15 +88,14 @@ layout = dbc.Container([
                 inline=True, 
                 id='radioc',
                 style={'font-family': 'Cambria'}
-            ), 
-            width=4,
-            className='mx-auto'
+            ),
+            xs=12, md=4, className='mb-3 mb-md-0 mx-auto'
         ),
-
     ]),
 
     html.Hr(),
-    # Filtros y dropdowns
+
+    # Dropdowns
     dbc.Row([
         dbc.Col(
             dcc.Dropdown(
@@ -107,41 +107,33 @@ layout = dbc.Container([
                 placeholder='Selecciona una o varias opciones',
                 style={'width': '100%', 'font-family': 'Cambria'}
             ),
-            width=7,
-            className='mx-auto'
+            xs=12, md=7, className='mb-3 mb-md-0 mx-auto'
         ),
-
         dbc.Col(
             dcc.Dropdown(
                 id='infoc',
-                options=[
-                    {'label': 'Distribución de actividades por territorio s/ cantidad de empresas', 'value': 'a'},
-                    {'label': 'Distribución de ganancias según actividad económica y territorio', 'value': 'b'},
-                    {'label': 'Distribución de ganancias/empresas según actividad económica', 'value': 'c'},                    
-                    {'label': 'Cantidad de empresas según por niveles actividad económica', 'value': 'd'},
-                    {'label': 'Ganancias por niveles de actividad económica', 'value': 'e'},
-                    {'label': 'Cantidad de distritos por actividad económica', 'value': 'f'},
-                ],
+                options=[...],  # tus opciones
                 value='a',
                 clearable=False,
                 multi=False,
                 placeholder='Selecciona una opción',
-                style={'width': '100%', 'font-family': 'Cambria', 'maxHeight': '700px'},
+                style={'width': '100%', 'font-family': 'Cambria', 'maxHeight': '700px'}
             ),
-            width=5,
-            className='mx-auto'
+            xs=12, md=5, className='mb-3 mb-md-0 mx-auto'
         )
-    ]),
+    ], justify='center'),
 
-   
-
-    # Primer gráfico (centrado, ancho total)
+    # Gráfico principal
     dbc.Row([
-        dbc.Col(dcc.Graph(id='plot1c', figure=fig), width=12, md=12, sm=12, className='mx-auto'),
+        dbc.Col(
+            dcc.Graph(id='plot1c', figure=fig),
+            xs=12, md=12, className='mx-auto mb-4'
+        ),
     ]),
 
     html.Hr(),
 
+    # Explicación
     dcc.Markdown(
         id='explicacion-containerb',
         style={
@@ -149,28 +141,30 @@ layout = dbc.Container([
             'fontSize': '16px',
             'textAlign': 'justify',
             'lineHeight': '1.6',
-            'width': '66%',
+            'width': '90%',         # Más ancho en móviles
+            'maxWidth': '800px',    # Ajuste para pantallas grandes
             'margin': '20px auto',
             'padding': '10px',
             'whiteSpace': 'pre-wrap'
         }
     ),
 
-
-    # Segundo gráfico (centrado, ancho 8)
+    # Segundo gráfico
     dbc.Row([
-        dbc.Col(dcc.Graph(id='plot2c', figure=fig2), width=10, className='mx-auto'),
+        dbc.Col(
+            dcc.Graph(id='plot2c', figure=fig2, style={'width': '100%'}),
+            xs=12, md=10, className='mx-auto mb-4'
+        ),
     ]),
 
     html.Hr(),
 
+    # Tooltip y tabla
     dbc.Tooltip(
         "Filtrá escribiendo en cada columna (El botón [Aa] desactiva la sensibilidad a mayúsculas.). Usá =, >, <, >=, <= para valores numéricos. Ejemplo: > 100 mostrará solo los valores mayores a 100.",
         target="tablec",
-        placement="top",
+        placement="top"
     ),
-
-    # Tabla
     dbc.Row([
         dbc.Col(
             dash_table.DataTable(
@@ -180,8 +174,8 @@ layout = dbc.Container([
                 style_table={
                     'maxWidth': '100%',
                     'overflowX': 'auto',
-                    'overflowY': 'auto',  # Para que aparezca el scroll vertical
-                    'maxHeight': '400px',  # Altura máxima de la tabla
+                    'overflowY': 'auto',
+                    'maxHeight': '400px',
                     'margin': 'auto'
                 },
                 style_cell={
@@ -197,39 +191,35 @@ layout = dbc.Container([
                 },
                 data=[],
                 filter_action='native',
-                sort_action='native',
+                sort_action='native'
             ),
-            width=8,
-            className='mx-auto'
+            xs=12, md=8, className='mx-auto mb-4'
         )
     ]),
 
     html.Br(),
 
     # Footer
-    html.Div([
-        html.P(
-        "Importante: leer consideraciones metodológicas. // Realizado por Cambra Business Analytics. // Contacto: +595 0985 705586.",
-        style={
-            'font-family': 'Cambria, serif',
-            'font-style': 'italic',
-            'text-align': 'center',
-            'color': 'white',
-            'background-color': 'black',
-            'margin-top': '20px',
-            'width': '80%',
-            'margin-left': 'auto',
-            'margin-right': 'auto',
-            'padding': '10px',
-            #'border-radius': '10px',
-            'line-height': '1.5',
-            'font-size': '14px'
-            }
+    dbc.Row([
+        dbc.Col(
+            html.P(
+                "Importante: leer consideraciones metodológicas. // Realizado por Cambra Business Analytics. // Contacto: +595 0985 705586.",
+                style={
+                    'font-family': 'Cambria, serif',
+                    'font-style': 'italic',
+                    'text-align': 'center',
+                    'color': 'white',
+                    'background-color': 'black',
+                    'padding': '10px',
+                    'line-height': '1.5',
+                    'font-size': '14px'
+                }
+            ),
+            xs=12, md=8, className='mx-auto'
         )
-    ]),
+    ])
 
 ], fluid=True)
-
 
 @dash.callback(
     Output('dropdown-optionsc', 'options'),
