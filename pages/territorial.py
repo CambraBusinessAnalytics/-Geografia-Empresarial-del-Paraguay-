@@ -168,7 +168,7 @@ layout = dbc.Container([
             xs=12, md=8,
             className='mx-auto mb-4'
         ),
-    ])
+    ]),
 
 
     html.Hr(),
