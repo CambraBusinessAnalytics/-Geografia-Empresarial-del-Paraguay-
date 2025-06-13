@@ -47,8 +47,8 @@ layout = html.Div([
                     config={'scrollZoom': False}
                 ),
             ], xs=12, md=10)
-        ], justify="center")
-    ], fluid=True)
+        ], justify="center"),
+    ], fluid=True),
 
 
     dbc.Row([
@@ -61,7 +61,7 @@ layout = html.Div([
                     'margin': 'auto'
                 },
                 style_cell={'textAlign': 'center'},
-            )
+            ),
         ], xs=10, md=5, className='mb-4 mb-md-0'),  # margen inferior solo en pantallas pequeñas
     
         dbc.Col([
@@ -81,10 +81,10 @@ layout = html.Div([
                 style_data={
                     'whiteSpace': 'normal',
                     'lineHeight': '15px',
-                }
-            )
+                },
+            ),
         ], xs=10, md=5),
-    ], justify="center", style={'marginTop': '20px'})
+    ], justify="center", style={'marginTop': '20px'}),
 
     html.Hr(),
 
