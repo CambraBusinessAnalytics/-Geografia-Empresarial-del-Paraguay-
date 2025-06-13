@@ -135,7 +135,7 @@ layout = dbc.Container([
             xs=12, md=5,
             className='mx-auto'
         )
-    ], justify='center', className='mb-4')
+    ], justify='center', className='mb-4'),
 
 
     html.Hr(),
