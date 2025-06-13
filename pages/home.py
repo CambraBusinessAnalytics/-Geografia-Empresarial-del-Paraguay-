@@ -36,16 +36,19 @@ layout = html.Div([
                     id='radio',
                     options=[
                         {'label': 'Cantidad de Empresas', 'value': 'Cantidad'},
-                        {'label': 'Ganancia de Empresas', 'value': 'Ganancias'}],
+                        {'label': 'Ganancia de Empresas', 'value': 'Ganancias'}
+                    ],
                     value='Cantidad',
                     inline=True
                 ),
                 dcc.Graph(
                     id='plot-paraguay',
-                    style={'height': '800px', 'width': '100%'},
-                    config={'scrollZoom': False}),
-            ], width=10)
-        ], justify="center"),
+                    style={'height': '60vh', 'width': '100%'},
+                    config={'scrollZoom': False}
+                ),
+            ], xs=12, md=10)
+        ], justify="center")
+    ], fluid=True)
 
 
         dbc.Row([
